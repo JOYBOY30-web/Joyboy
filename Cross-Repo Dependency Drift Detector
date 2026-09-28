@@ -1,0 +1,11 @@
+Problem Statement 
+Teams running microservices or large monorepos have no lightweight way to see where a  dependency-version mismatch will actually break something before it ships. 
+Problem Description 
+Once a codebase splits into multiple services or packages, each piece pins its own versions of  shared libraries. Nothing in a typical CI setup shows a team, at a glance, "service A expects  libX@2.1, service B expects libX@1.9, and their contract will silently diverge." Existing tools  either check one repo at a time or require heavyweight enterprise platforms. 
+Affected users include small engineering teams, open-source maintainers, and students managing  multi-repo capstone projects. 
+Expected Solution 
+The solution should ingest a set of repos/manifests such as package.json, requirements.txt, and  pom.xml, build a cross-repo dependency graph, and flag version drift with a real compatibility  signal — not just "these numbers differ." 
+Objective 
+Build a lightweight system that identifies cross-repo dependency version drift and provides  meaningful compatibility signals before the mismatch causes issues. 
+Technology 
+Must work on real public GitHub repos as input; should not require the repos to already be  instrumented.
